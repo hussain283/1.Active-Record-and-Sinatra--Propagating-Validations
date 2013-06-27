@@ -1,0 +1,17 @@
+<div class="container">
+	<h1>Create New Event</h1>
+	<br>
+	<% unless @event.errors.blank? %>
+		<% @event.errors.full_messages.each do |message| %>
+			<p style="color:red"><%= message %></p>
+		<% end %>
+	<% end %>
+
+	<form method="post" action="/events/create">
+		<input type="text" name="event[title]" placeholder="Enter an event title" value="<%= @event.title %>"><br>
+		<input type="text" name="event[organizer_name]" placeholder="Enter your name" value="<%= @event.organizer_name %>"><br>
+		<input type="text" name="event[organizer_email]" placeholder="Enter your email" value="<%= @event.organizer_email %>"><br>
+		<input type="date" name="event[date]" placeholder="Please Enter a Valid Date" value="<%= @event.date %>"><br>
+		<input type="submit" value="Create!!">
+	</form>
+</div>
